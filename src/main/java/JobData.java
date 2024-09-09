@@ -38,6 +38,7 @@ public class JobData {
                 values.add(aValue);
             }
         }
+        values.sort(Comparator.naturalOrder());
 
         return values;
     }
@@ -75,21 +76,6 @@ public class JobData {
             if (aValue.toLowerCase().contains(value.toLowerCase())) {
                 jobs.add(row);
             }
-        }
-        switch(column){
-            case "core competency":
-                jobs.sort((HashMap<String,String> job1, HashMap<String,String> job2)->job1.get("core competency").compareTo(job2.get("core competency")));
-                break;
-            case "employer":
-                jobs.sort((HashMap<String,String> job1, HashMap<String,String> job2)->job1.get("employer").compareTo(job2.get("employer")));
-                break;
-            case "location":
-                jobs.sort((HashMap<String,String> job1, HashMap<String,String> job2)->job1.get("location").compareTo(job2.get("location")));
-                break;
-            case "position type":
-                jobs.sort((HashMap<String,String> job1, HashMap<String,String> job2)->job1.get("position type").compareTo(job2.get("position type")));
-                break;
-            default:
         }
         return jobs;
     }
